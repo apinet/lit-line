@@ -19,6 +19,8 @@ why?
 $ npm install lit-line
 ```
 
+or
+
 ```html
 <script type="module" src="https://unpkg.com/lit-line@0.1.0/dist/lit-line.js"></script>
 ```
