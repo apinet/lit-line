@@ -16,12 +16,16 @@ why?
 ## Installation
 
 ```bash
-$ npm install @apinet/lit-line
+$ npm install lit-line
+```
+
+```html
+<script type="module" src="https://unpkg.com/lit-line@0.1.0/dist/lit-line.js"></script>
 ```
 
 ## quick start
 ```javascript
-import '@apinet/lit-line';
+import 'lit-line';
 
 
 <lit-line id="chart"></lit-line>
@@ -47,7 +51,7 @@ import '@apinet/lit-line';
 ## quick start using lit-html (declarative)
 
 ```javascript
-import '@apinet/lit-line';
+import 'lit-line';
 
 
 <lit-line id="chart" .data=${
