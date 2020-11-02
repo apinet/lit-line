@@ -1,0 +1,59 @@
+{
+  "name": "lit-line",
+  "version": "0.1.0",
+  "license": "MIT",
+  "contributors": [
+    "me"
+  ],
+  "description": "SVG line chart webcomponent. fast, small, reactive, responsive.",
+  "keywords": [
+    "svg",
+    "chart",
+    "webcomponent",
+    "data",
+    "graph",
+    "lit-html",
+    "es6"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adrienpinet/lit-line.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adrienpinet/lit-line/issues"
+  },
+  "files": [
+    "dist/*.js",
+    "dist/*.d.ts"
+  ],
+  "main": "dist/lit-line.js",
+  "scripts": {
+    "clean": "rm -fr dist",
+    "build": "npm run clean && rollup -c ./rollup.config.js",
+    "dev": "npm run clean && rollup -c ./rollup.config.js -w",
+    "test": "npm run clean && rollup -c ./rollup.config.js --environment TEST && karma start"
+  },
+  "dependencies": {
+    "lit-html": "^1.3.0"
+  },
+  "devDependencies": {
+    "jasmine": "^3.6.2",
+    "@types/jasmine": "^3.6.0",
+    "karma": "^5.2.3",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^4.0.1",
+    "karma-safari-launcher": "^1.0.0",
+    "karma-spec-reporter": "0.0.32",
+    "rollup": "^1.25.2",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-minify-html-literals": "^1.2.2",
+    "rollup-plugin-multi-input": "^1.1.1",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-serve": "^1.0.4",
+    "rollup-plugin-terser": "^5.1.3",
+    "rollup-plugin-typescript": "^1.0.0",
+    "tslib": "^2.0.1",
+    "typescript": "^4.0.3"
+  }
+}

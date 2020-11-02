@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+    "noStrictGenericChecks": true,
+    "skipLibCheck": true,
+
+    "experimentalDecorators": true,
+    "target": "es6",
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "pretty": true,
+    "newLine": "lf",
+    "stripInternal": false,
+    "sourceMap": true
+  }
+}
