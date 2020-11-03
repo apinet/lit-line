@@ -4,7 +4,7 @@
  * Released under the MIT license
  */
 
-import {Point, Range, Slot, sortPoints, getTimeRange, getValueRange, scalePoints, scale} from '../src/timeshift';
+import {Point, sortPoints, getTimeRange, getValueRange, scalePoints } from '../src/timeshift';
 
 describe('[timeshift] sortPoints', () => {
   describe('when empty list', () => {

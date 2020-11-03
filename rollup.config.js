@@ -1,12 +1,12 @@
-import typescript from 'rollup-plugin-typescript';
+import multiInput from "rollup-plugin-multi-input";
+import ts from "@wessberg/rollup-plugin-ts";
 import resolve from 'rollup-plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import minifyLiterals from 'rollup-plugin-minify-html-literals';
 
 import copy from 'rollup-plugin-copy';
-import livereload from 'rollup-plugin-livereload';
 import serve from 'rollup-plugin-serve';
-import multiInput from "rollup-plugin-multi-input";
+import livereload from 'rollup-plugin-livereload';
 
 const MODE_DEV = process.env.ROLLUP_WATCH ? true : false;
 const MODE_TEST = process.env.TEST ? true : false; 
@@ -32,7 +32,7 @@ export default {
   },
   plugins: [    
     multiInput({ relative }),
-    typescript({sourceMap: true}),
+    ts(),
     resolve(),
 
     MODE_PROD && terser(),

@@ -6,7 +6,7 @@
 
 import '../src/lit-line';
 
-import { LitLine, SelectionEventDetail, Serie } from '../src/lit-line';
+import { Serie } from '../src/lit-line';
 import { Range } from '../src/timeshift';
 
 import {
@@ -15,7 +15,6 @@ import {
   CHART_MARGIN,
   createLitLineSvg,
   getSvg,
-  getSerie,
   getSeriePath,
   getSeriePoints,
   getSeriePoint,
@@ -24,8 +23,6 @@ import {
   getSerieRanges,
   getSerieRange,
   getSeries,
-  listenSelectedEvent,
-  fireMouseEvent
 } from './dom-helper';
 
 /* 

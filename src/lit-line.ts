@@ -14,6 +14,7 @@ import {
   getValueOverTime, SelectedValue, scale
 } from './timeshift';
 
+
 const MARGIN = 4;
 const MIN_GAP = 4;
 const DEFAULT_UNIT = 'default';
@@ -118,9 +119,10 @@ export class LitLine extends HTMLElement {
     return []; // TODO: customize layout.
   }
   
-  attributeChangedCallback(name: string, oldValue: string, value: string) {
+/*   attributeChangedCallback(name: string, oldValue: string, value: string) {
+    
   }
-          
+ */          
   get data() {
     return this.series;
   }
@@ -182,11 +184,11 @@ export class LitLine extends HTMLElement {
     this.render();
   }
 
-  onResize() {
+  private onResize() {
     this.adjust();
   }
 
-  onSelection(e: MouseEvent | TouchEvent) {
+  private onSelection(e: MouseEvent | TouchEvent) {
     if(this.hasAttribute('no-selection') || this.timeRange === null) {
       return;
     }
@@ -221,7 +223,7 @@ export class LitLine extends HTMLElement {
     this.render();
   }
 
-  onLeaveSelection() {
+  private onLeaveSelection() {
     if(this.hasAttribute('no-selection')) {
       return;
     }
@@ -238,7 +240,7 @@ export class LitLine extends HTMLElement {
     this.dispatchEvent(event);
   }
 
-  render() {
+  private render() {
     this.shadowRoot && render(
       html`
         <svg viewBox="0 0 ${this.clientWidth} ${this.clientHeight}">
