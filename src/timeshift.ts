@@ -14,12 +14,6 @@ export interface Slot extends Point{
   hits: number
 }
 
-export interface Serie {
-  name: string
-  unit: string
-  points: Point[]
-}
-
 export interface Range {
   min: number
   max: number

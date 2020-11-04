@@ -1,6 +1,6 @@
 {
   "name": "lit-line",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "contributors": [
     "Adrien Pinet"
@@ -23,9 +23,9 @@
     "url": "https://github.com/adrienpinet/lit-line/issues"
   },
   "files": [
-    "dist/*.js",
-    "dist/*.map",
-    "dist/*.d.ts"
+    "dist/lit-line.js",
+    "dist/lit-line.js.map",
+    "dist/lit-line.d.ts"
   ],
   "main": "dist/lit-line.js",
   "types": "dist/lit-line.d.ts",
