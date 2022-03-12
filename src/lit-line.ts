@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2020, Adrien Pinet
+ * Copyright (c) 2022, Adrien Pinet
  * Released under the MIT license
  */
 

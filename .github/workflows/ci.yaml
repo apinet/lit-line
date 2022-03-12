@@ -15,12 +15,8 @@ jobs:
       - name: ⬇️ Installing dependencies
         run: npm i
 
-      - name: ⬇️ Installing chrome
-        uses: browser-actions/setup-chrome@latest
-
       - name: ⬇️ Testing package
-        run: |
-          npm run test
+        run: npm run test
 
       - name: setup npm
         uses: actions/setup-node@v2
