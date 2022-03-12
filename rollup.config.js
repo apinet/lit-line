@@ -1,4 +1,4 @@
-import multiInput from "rollup-plugin-multi-input";
+import multi from '@rollup/plugin-multi-entry';
 import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
@@ -20,7 +20,7 @@ export default {
     sourcemap: true
   },
   plugins: [    
-    multiInput(),
+    multi({entryFileName: MODE_TEST ? "lit-line.spec.js" : "lit-line.js"}),
     typescript({declaration:true,declarationDir:DIST_PATH}),
     resolve(),
 

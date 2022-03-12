@@ -1,6 +1,6 @@
 {
   "name": "lit-line",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "license": "MIT",
   "contributors": [
     "Adrien Pinet"
@@ -24,11 +24,10 @@
   },
   "files": [
     "dist/lit-line.js",
-    "dist/lit-line.js.map",
-    "dist/lit-line.d.ts"
+    "dist/lit-line.js.map"
   ],
   "main": "dist/lit-line.js",
-  "types": "dist/lit-line.d.ts",
+  "types": "dist/src/lit-line.d.ts",
   "scripts": {
     "clean": "rm -fr dist",
     "test": "npm run clean && rollup -c ./rollup.config.js --environment TEST && karma start",
@@ -38,20 +37,17 @@
     "lit-html": "^2.2.0"
   },
   "devDependencies": {
+    "@rollup/plugin-multi-entry": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@rollup/plugin-typescript": "^8.3.1",
     "@types/jasmine": "^3.6.0",
-    "@wessberg/rollup-plugin-ts": "^1.3.7",
     "jasmine": "^3.6.2",
-    "karma": "^5.2.3",
+    "karma": "^6.3.17",
     "karma-chrome-launcher": "^3.1.0",
     "karma-jasmine": "^4.0.1",
     "karma-spec-reporter": "0.0.32",
     "rollup": "^2.70.0",
     "rollup-plugin-minify-html-literals": "^1.2.5",
-    "rollup-plugin-multi-input": "^1.1.1",
-    "rollup-plugin-node-resolve": "^4.0.1",
-    "rollup-plugin-serve": "^1.0.4",
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.0.1",
     "typescript": "^4.0.3"
