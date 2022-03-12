@@ -1,8 +1,4 @@
 {
-  "include": [
-    "src/**/*.ts"
-  ],
-  
   "compilerOptions": {
     "strict": true,
     "noUnusedLocals": true,
@@ -16,8 +12,6 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     
-    "declaration": true,
-
     "target": "es6",
     "lib": [
       "dom",
