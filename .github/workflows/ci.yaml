@@ -22,6 +22,12 @@ jobs:
         run: |
           npm run test
 
+      - name: setup npm
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
+
       - name: 📦 deploy to npm
         run: |
           npm ci
