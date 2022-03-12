@@ -16,10 +16,11 @@ jobs:
         run: npm i
 
       - name: ⬇️ Testing package
+        uses: browser-actions/setup-chrome@latest
         run: |
           npm run test
 
-      - name: 📦 deploy nopwdco to preview
+      - name: 📦 deploy to npm
         run: |
           npm ci
           npm publish
