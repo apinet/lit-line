@@ -1,0 +1,27 @@
+name: Build and Deploy package
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy-ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@main
+
+      - name: ⬇️ Installing dependencies
+        run: npm i
+
+      - name: ⬇️ Testing package
+        run: |
+          npm run test
+
+      - name: 📦 deploy nopwdco to preview
+        run: |
+          npm ci
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
