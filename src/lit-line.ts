@@ -311,6 +311,7 @@ export class LitLine extends HTMLElement {
                       stroke=${serie.color} fill=${serie.color} cx="${
                     slot.time
                   }" cy="${slot.value}" r="2"/>
+                  </g>
                   `
                 )}
               </g>
@@ -375,7 +376,7 @@ export class LitLine extends HTMLElement {
 
             .serie__point__bar {
               stroke-opacity: 0.4;
-              stroke-width: 20;
+              stroke-width: 1;
               transition: 200ms height ease-in;
             }
 

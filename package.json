@@ -1,6 +1,6 @@
 {
   "name": "lit-line",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "license": "MIT",
   "contributors": [
     "Adrien Pinet"
@@ -17,10 +17,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/adrienpinet/lit-line.git"
+    "url": "https://github.com/apinet/lit-line.git"
   },
   "bugs": {
-    "url": "https://github.com/adrienpinet/lit-line/issues"
+    "url": "https://github.com/apinet/lit-line/issues"
   },
   "files": [
     "dist/lit-line.js",
