@@ -11,14 +11,14 @@
     "noStrictGenericChecks": true,
     "skipLibCheck": true,
     "experimentalDecorators": true,
-    
-    "target": "es6",
+
+    "target": "es2019",
     "lib": [
-      "dom",
-      "es2017"
+      "DOM",
+      "es2020"
     ],
-    
-    "module": "es2015",
+
+    "module": "es2020",
     "moduleResolution": "node",
     
     "pretty": true,

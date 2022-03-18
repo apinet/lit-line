@@ -5,24 +5,24 @@ on:
       - master
 
 jobs:
-  deploy-ci:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: ⬇️ Checkout Repository
         uses: actions/checkout@main
 
-      - name: ⬇️ Installing dependencies
-        run: npm i
-
-      - name: ⬇️ Testing package
-        run: npm run test
-
       - name: setup npm
         uses: actions/setup-node@v2
         with:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
+
+      - name: ⬇️ Installing dependencies
+        run: npm i
+
+      - name: 🧐 Testing package
+        run: npm run test
 
       - name: 📦 deploy to npm
         run: |

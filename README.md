@@ -1,13 +1,15 @@
 ## Overview
 
-lit-line is a minimal `line chart` library for `modern website`.
+lit-line is a minimal `line chart` web component for `modern website`.
 
 why?
- - `small`: less than 7kb (gzip)
- - `fast`: designed for rendering thousand of points with ease (thanks to the awesome lit-html)
- - `multi-lines support`: lines with the same unit are scaled together 
- - `fully responsive`: high data density are merged for better readability
- - `interactive`: user can interact with lines (Desktop and mobile)
+
+- `small`: less than 6kb (gzip)
+- `fast`: designed for rendering thousand of points with ease (thanks to the awesome lit-html)
+- `multi-lines support`: lines with the same unit are scaled together
+- `fully responsive`: high data density are merged for better readability
+- `interactive`: user can interact with lines (Desktop and mobile)
+- `agnostic`: can be used with your favorite plateform or library
 
 [try it!](https://apinet.github.io)
 
@@ -22,10 +24,14 @@ $ npm install lit-line
 or
 
 ```html
-<script type="module" src="https://unpkg.com/lit-line@{version}/dist/lit-line.js"></script>
+<script
+  type="module"
+  src="https://unpkg.com/lit-line@{version}/dist/lit-line.js"
+></script>
 ```
 
 ## quick start
+
 ```javascript
 import 'lit-line';
 
@@ -68,34 +74,38 @@ import 'lit-line';
 ```
 
 ## Dataset format
+
 Lit-Line `.data` property accepts `Serie` array such as:
 
 ```ts
 interface Serie {
-  color?: string // the line color (default: #224)
-  unit?: string // series with the same unit are scaled together
-  points: {time: number, value: number}[] // a list of data points
+  color?: string; // the line color (default: #224)
+  unit?: string; // series with the same unit are scaled together
+  points: { time: number; value: number }[]; // a list of data points
 }
 ```
 
 ## Customization
+
 To change the time selection appearance when the user interact with chart:
+
 ```css
-  lit-line {
-    --lit-line-selected-time--opacity: 0.4;
-    --lit-line-selected-time--color: red;
-    --lit-line-selected-time--width: 2;
-  }
+lit-line {
+  --lit-line-selected-time--opacity: 0.4;
+  --lit-line-selected-time--color: red;
+  --lit-line-selected-time--width: 2;
+}
 ```
 
-
 ## Todo next
- - Add more test cases:
-    - testing browser resize
-    - testing user interactions
-    - ~~testing multi lines~~
- - Improve jsDoc
- - Enhance customization (need feedback here!)
+
+- Add more test cases:
+  - testing browser resize
+  - testing user interactions
+  - ~~testing multi lines~~
+- Improve jsDoc
+- Enhance customization (need feedback here!)
 
 ## License
+
 lit-line is available under the [MIT license](https://opensource.org/licenses/MIT).

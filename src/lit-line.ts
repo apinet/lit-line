@@ -27,8 +27,6 @@ const MIN_GAP = 4;
 const DEFAULT_UNIT = "default";
 const DEFAULT_COLOR = "#224";
 
-export * as lib from "./timeshift";
-
 export interface Serie {
   unit?: string;
   color?: string;
