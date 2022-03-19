@@ -52,6 +52,12 @@ export interface SelectionEventDetail {
   values: (number | null)[];
 }
 
+declare global {
+  interface HTMLElementTagNameMap {
+    "lit-line": LitLine;
+  }
+}
+
 /**
  * @element lit-line
  * A custom element that renders time series and allows user to interact with them.
