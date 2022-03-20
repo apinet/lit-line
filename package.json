@@ -1,6 +1,6 @@
 {
   "name": "lit-line",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "license": "MIT",
   "contributors": [
     "Adrien Pinet"
@@ -26,8 +26,8 @@
     "dist/lit-line.js",
     "dist/lit-line.js.map",
     "dist/lit-line.d.ts",
-    "dist/lib/element.js",
-    "dist/lib/element.js.map"
+    "dist/element.js",
+    "dist/element.js.map"
   ],
   "main": "dist/lit-line.js",
   "module": "dist/lit-line.js",
