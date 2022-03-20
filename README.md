@@ -33,9 +33,6 @@ or
 ## quick start
 
 ```javascript
-import 'lit-line';
-
-
 <lit-line id="chart"></lit-line>
 
 <script>
@@ -49,11 +46,19 @@ import 'lit-line';
         {time: 1982, value: 1112},
         {time: 1983, value: 2705},
         {time: 2014, value: 1303},
-        {time: 2016, value: 2705},
+        {time: 2016, value: 2605},
       ]
     }
   ];
 </script>
+```
+
+You can specify your own tag name by importing the class element itself:
+
+```javascript
+import { LitLine } from "lit-line/element";
+...
+window.customElements.define("ada-lovelace", LitLine);
 ```
 
 ## quick start using lit-html (declarative)
@@ -69,13 +74,13 @@ import 'lit-line';
       {time: 1982, value: 1112},
       {time: 1983, value: 2705},
       {time: 2014, value: 1303},
-      {time: 2016, value: 2705},
+      {time: 2016, value: 2605},
   ]}></lit-line>
 ```
 
 ## Dataset format
 
-Lit-Line `.data` property accepts `Serie` array such as:
+Lit-Line `.data` property accepts `Serie` arrays such as:
 
 ```ts
 interface Serie {
