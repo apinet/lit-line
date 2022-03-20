@@ -1,6 +1,6 @@
 {
   "name": "lit-line",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "license": "MIT",
   "contributors": [
     "Adrien Pinet"
@@ -25,29 +25,18 @@
   "files": [
     "dist/lit-line.js",
     "dist/lit-line.js.map",
-    "dist/lit-line.d.ts",
-    "dist/element.js",
-    "dist/element.js.map"
+    "dist/lit-line.d.ts"
   ],
   "main": "dist/lit-line.js",
   "module": "dist/lit-line.js",
   "types": "dist/lit-line.d.ts",
-  "exports": {
-    ".": {
-      "default": "./dist/lit-line.js"
-    },
-    "./element": {
-      "default": "./dist/element.js"
-    }
-  },
-
+  
   "scripts": {
     "clean": "rm -fr dist",
     "test": "npm run clean && esbuild test/*.spec.ts --outdir=dist --bundle && karma start",
-    "build:wc": "esbuild src/lit-line.ts --outdir=dist --bundle --minify --sourcemap",
-    "build:c": "esbuild src/element.ts --outdir=dist --bundle --minify --sourcemap",
+    "build:src": "esbuild src/lit-line.ts --outdir=dist --bundle --minify --sourcemap",
     "build:type": "tsc src/lit-line.ts --target es5 --outFile dist/lit-line.d.ts --declaration --emitDeclarationOnly",
-    "build": "npm run clean && npm run build:wc && npm run build:c && npm run build:type"
+    "build": "npm run clean && npm run build:src && npm run build:type"
   },
   "dependencies": {
     "lit-html": "^2.2.0"

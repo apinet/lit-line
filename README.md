@@ -53,14 +53,6 @@ or
 </script>
 ```
 
-You can specify your own tag name by importing the class element itself:
-
-```javascript
-import { LitLine } from "lit-line/element";
-...
-window.customElements.define("ada-lovelace", LitLine);
-```
-
 ## quick start using lit-html (declarative)
 
 ```javascript
