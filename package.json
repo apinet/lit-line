@@ -5,7 +5,7 @@
   "contributors": [
     "Adrien Pinet"
   ],
-  "description": "SVG line chart webcomponent based on lit-html. fast, small, reactive, responsive.",
+  "description": "SVG line chart web component based on lit-html. fast, small, reactive, responsive.",
   "keywords": [
     "svg",
     "chart",
