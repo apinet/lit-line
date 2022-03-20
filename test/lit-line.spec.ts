@@ -4,7 +4,7 @@
  * Released under the MIT license
  */
 
-import { Serie } from "../src/lit-line";
+import { Serie } from "../src/element";
 import { Range } from "../src/timeshift";
 
 import {

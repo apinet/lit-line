@@ -6,7 +6,7 @@
 
 import "../src/lit-line";
 import { render, html } from "lit-html";
-import { LitLine, SelectionEventDetail, Serie } from "../src/lit-line";
+import { LitLine, SelectionEventDetail, Serie } from "../src/element";
 
 export const CHART_MARGIN = 4;
 export const CHART_WIDTH = 500;
