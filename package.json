@@ -1,6 +1,6 @@
 {
   "name": "lit-line",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "license": "MIT",
   "contributors": [
     "Adrien Pinet"
@@ -30,7 +30,6 @@
   "main": "dist/lit-line.js",
   "module": "dist/lit-line.js",
   "types": "dist/lit-line.d.ts",
-  
   "scripts": {
     "clean": "rm -fr dist",
     "test": "npm run clean && esbuild test/*.spec.ts --outdir=dist --bundle && karma start",
@@ -38,19 +37,19 @@
     "build:type": "tsc src/lit-line.ts --target es5 --outFile dist/lit-line.d.ts --declaration --emitDeclarationOnly",
     "build": "npm run clean && npm run build:src && npm run build:type"
   },
-  "dependencies": {
-    "lit-html": "^2.2.0"
+  "peerDependencies": {
+    "lit-html": "^2.5.0"
   },
   "devDependencies": {
-    "@types/jasmine": "^4.0.0",
-    "esbuild": "^0.14.27",
-    "jasmine": "^4.0.2",
-    "karma": "^6.3.17",
+    "@types/jasmine": "^4.3.1",
+    "esbuild": "^0.16.12",
+    "jasmine": "^4.5.0",
+    "karma": "^6.4.1",
     "karma-chrome-launcher": "^3.1.1",
     "karma-jasmine": "^4.0.1",
-    "karma-spec-reporter": "0.0.32",
+    "karma-spec-reporter": "^0.0.36",
     "karma-typescript": "^5.5.3",
-    "tslib": "^2.3.1",
-    "typescript": "^4.0.3"
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4"
   }
 }
