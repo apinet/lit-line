@@ -211,21 +211,14 @@ export class LitLine extends HTMLElement {
     }
 
     this.selectedTime =
-      e instanceof MouseEvent
-        ? e.pageX - this.offsetLeft
-        : e.touches[0].pageX - this.offsetLeft;
+      e instanceof MouseEvent ? e.pageX - this.offsetLeft : e.touches[0].pageX - this.offsetLeft;
 
-    if (
-      this.selectedTime < MARGIN ||
-      this.selectedTime > this.clientWidth - MARGIN
-    ) {
+    if (this.selectedTime < MARGIN || this.selectedTime > this.clientWidth - MARGIN) {
       return;
     }
 
     this.selectedValues = this.scaledSeries.map((serie) => {
-      return this.selectedTime === null
-        ? null
-        : getValueOverTime(serie.slots, this.selectedTime);
+      return this.selectedTime === null ? null : getValueOverTime(serie.slots, this.selectedTime);
     });
 
     const unscaledSelectedTime = scale(
@@ -241,11 +234,7 @@ export class LitLine extends HTMLElement {
         return null;
       }
 
-      return scale(
-        value.value,
-        { min: this.clientHeight - MARGIN, max: MARGIN },
-        unitRange
-      );
+      return scale(value.value, { min: this.clientHeight - MARGIN, max: MARGIN }, unitRange);
     });
 
     this.dispatch("selected", {
@@ -284,32 +273,27 @@ export class LitLine extends HTMLElement {
             ${this.scaledSeries.map((serie) => {
               return svg`
                 <g class="serie">
-                  <path class="serie__path" stroke=${
-                    serie.color
-                  } d="${pointsToSvgPath(serie.slots)}"/>
+                  <path class="serie__path" stroke=${serie.color} d="${pointsToSvgPath(
+                serie.slots
+              )}"/>
                   ${serie.slots.map(
                     (slot) => svg`
                       <g class="serie__point">
-                      <line class="serie__point__bar" stroke=${
-                        serie.color
-                      } x1="${slot.time}" y1="${slot.value}" x2="${
-                      slot.time
-                    }" y2="${this.clientHeight - MARGIN}"/>
+                      <line class="serie__point__bar" stroke=${serie.color} x1="${slot.time}" y1="${
+                      slot.value
+                    }" x2="${slot.time}" y2="${this.clientHeight - MARGIN}"/>
                       <rect class="serie__point__range"
                         ?highlight=${
-                          this.selectedTime &&
-                          Math.abs(this.selectedTime - slot.time) <= 2
+                          this.selectedTime && Math.abs(this.selectedTime - slot.time) <= 2
                         }
                         x="${slot.time - 2}" y="${slot.range.min}"
-                        width="4" height="${Math.abs(
-                          slot.range.max - slot.range.min
-                        )}"
+                        width="4" height="${Math.abs(slot.range.max - slot.range.min)}"
                         fill=${serie.color} stroke=${serie.color}
                         rx="3" ry="3"/>
                       <circle class="serie__point__value"
-                        stroke=${serie.color} fill=${serie.color} cx="${
-                      slot.time
-                    }" cy="${slot.value}" r="2"/>
+                        stroke=${serie.color} fill=${serie.color} cx="${slot.time}" cy="${
+                      slot.value
+                    }" r="2"/>
                     </g>
                     `
                   )}
@@ -319,11 +303,9 @@ export class LitLine extends HTMLElement {
             ${this.selectedTime &&
             svg`
               <g class="selection">
-                <line class="selection__time" x1="${
-                  this.selectedTime
-                }" y1="${MARGIN}" x2="${this.selectedTime}" y2="${
-              this.clientHeight - MARGIN
-            }"/>
+                <line class="selection__time" x1="${this.selectedTime}" y1="${MARGIN}" x2="${
+              this.selectedTime
+            }" y2="${this.clientHeight - MARGIN}"/>
                 ${this.selectedValues.map((selectedValue, i) => {
                   return selectedValue !== null
                     ? svg`
