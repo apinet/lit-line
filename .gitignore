@@ -1,6 +1,7 @@
 .DS_Store
 build
 dist
+cdn
 node_modules
 
 # Logs

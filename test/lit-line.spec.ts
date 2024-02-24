@@ -4,8 +4,8 @@
  * Released under the MIT license
  */
 
-import { Serie } from "../src/element";
-import { Range } from "../src/timeshift";
+import { Serie } from "../src/lit-line.js";
+import { Range } from "../src/timeshift.js";
 
 import {
   CHART_WIDTH,
@@ -101,23 +101,17 @@ const creationTests: CreationTest[] = [
           { time: CHART_MARGIN, value: CHART_HEIGHT - CHART_MARGIN },
           {
             time: CHART_MARGIN + (CHART_WIDTH - 2 * CHART_MARGIN) / 3,
-            value:
-              CHART_HEIGHT -
-              (CHART_MARGIN + (CHART_HEIGHT - 2 * CHART_MARGIN) / 3),
+            value: CHART_HEIGHT - (CHART_MARGIN + (CHART_HEIGHT - 2 * CHART_MARGIN) / 3),
           },
         ],
         [
           {
             time: CHART_MARGIN + (2 * (CHART_WIDTH - 2 * CHART_MARGIN)) / 3,
-            value:
-              CHART_HEIGHT -
-              (CHART_MARGIN + (2 * (CHART_HEIGHT - 2 * CHART_MARGIN)) / 3),
+            value: CHART_HEIGHT - (CHART_MARGIN + (2 * (CHART_HEIGHT - 2 * CHART_MARGIN)) / 3),
           },
           {
             time: CHART_MARGIN + (3 * (CHART_WIDTH - 2 * CHART_MARGIN)) / 3,
-            value:
-              CHART_HEIGHT -
-              (CHART_MARGIN + (3 * (CHART_HEIGHT - 2 * CHART_MARGIN)) / 3),
+            value: CHART_HEIGHT - (CHART_MARGIN + (3 * (CHART_HEIGHT - 2 * CHART_MARGIN)) / 3),
           },
         ],
       ],
@@ -172,9 +166,7 @@ creationTests.forEach((test) => {
       it("creates a svg viewBox with the right dimensions", async () => {
         const litLine = await litLineAsync;
         const svg = getSvg(litLine);
-        expect(svg?.getAttribute("viewBox")).toEqual(
-          `0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`
-        );
+        expect(svg?.getAttribute("viewBox")).toEqual(`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`);
       });
 
       it(`renders ${test.it.renders.length} serie(s)`, async () => {
@@ -222,12 +214,8 @@ creationTests.forEach((test) => {
             serie.forEach((slot, slotId) => {
               const rangeElement = getSerieRange(litLine, serieId, slotId);
 
-              expect(rangeElement?.getAttribute("x")).toEqual(
-                `${slot.time - 2}`
-              );
-              expect(rangeElement?.getAttribute("y")).toEqual(
-                `${slot.range?.min || slot.value}`
-              );
+              expect(rangeElement?.getAttribute("x")).toEqual(`${slot.time - 2}`);
+              expect(rangeElement?.getAttribute("y")).toEqual(`${slot.range?.min || slot.value}`);
               expect(rangeElement?.getAttribute("width")).toEqual(`${4}`);
               expect(rangeElement?.getAttribute("height")).toEqual(
                 `${slot.range ? slot.range.max - slot.range.min : 0}`
@@ -246,9 +234,7 @@ creationTests.forEach((test) => {
               expect(barElement?.getAttribute("x1")).toEqual(`${slot.time}`);
               expect(barElement?.getAttribute("y1")).toEqual(`${slot.value}`);
               expect(barElement?.getAttribute("x2")).toEqual(`${slot.time}`);
-              expect(barElement?.getAttribute("y2")).toEqual(
-                `${CHART_HEIGHT - CHART_MARGIN}`
-              );
+              expect(barElement?.getAttribute("y2")).toEqual(`${CHART_HEIGHT - CHART_MARGIN}`);
             });
           });
         });

@@ -1,11 +1,11 @@
 {
   "name": "lit-line",
-  "version": "0.2.11",
+  "version": "0.3.0",
   "license": "MIT",
   "contributors": [
     "Adrien Pinet"
   ],
-  "description": "SVG line chart web component based on lit-html. fast, small, reactive, responsive.",
+  "description": "SVG line chart web component based on lit-html. Fast, small, reactive, responsive.",
   "keywords": [
     "svg",
     "chart",
@@ -23,19 +23,18 @@
     "url": "https://github.com/apinet/lit-line/issues"
   },
   "files": [
-    "dist/lit-line.js",
-    "dist/lit-line.js.map",
-    "dist/lit-line.d.ts"
+    "dist",
+    "cdn"
   ],
   "main": "dist/lit-line.js",
   "module": "dist/lit-line.js",
   "types": "dist/lit-line.d.ts",
   "scripts": {
-    "clean": "rm -fr dist",
-    "test": "npm run clean && esbuild test/*.spec.ts --outdir=dist --bundle && karma start",
-    "build:src": "esbuild src/lit-line.ts --outdir=dist --bundle --minify --sourcemap",
-    "build:type": "tsc src/lit-line.ts --target es5 --outFile dist/lit-line.d.ts --declaration --emitDeclarationOnly",
-    "build": "npm run clean && npm run build:src && npm run build:type"
+    "clean": "rm -fr dist cdn",
+    "test": "npm run clean && esbuild test/*.spec.ts --outdir=dist --bundle && karma start karma.conf.cjs",
+    "build:cdn": "node ./build.cdn.js",
+    "build:dist": "tsc",
+    "build": "npm run clean && npm run build:cdn && npm run build:dist"
   },
   "peerDependencies": {
     "lit-html": "^3.1.2"
@@ -51,5 +50,6 @@
     "karma-typescript": "^5.5.4",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
-  }
+  },
+  "type": "module"
 }

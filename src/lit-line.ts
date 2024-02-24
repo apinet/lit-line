@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2022, Adrien Pinet
+ * Copyright (c) 2024, Adrien Pinet
  * Released under the MIT license
  */
 
@@ -20,7 +20,7 @@ import {
   getValueOverTime,
   SelectedValue,
   scale,
-} from "./timeshift";
+} from "./timeshift.js";
 
 const MARGIN = 4;
 const MIN_GAP = 4;
@@ -258,7 +258,7 @@ export class LitLine extends HTMLElement {
   }
 
   private dispatch(name: string, detail: any) {
-    const event = new CustomEvent(`lit-line:${name}`, {
+    const event = new CustomEvent(`ll:${name}`, {
       composed: true,
       detail,
     });

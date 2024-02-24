@@ -3,12 +3,12 @@ module.exports = function(config) {
     basePath: "./",
     frameworks: ["jasmine"],
     files: [
-      { pattern: "dist/**/*.spec.js" }
+      { pattern: "dist/**/*.spec.js", type: "module" }
   ],
 preprocessors: {
     },
     reporters: ["spec"],
-    port: 10002,
+    port: 4321,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,

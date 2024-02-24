@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2022, Adrien Pinet
+ * Copyright (c) 2024, Adrien Pinet
  * Released under the MIT license
  */
 
@@ -121,9 +121,7 @@ export const pointsToSvgPath = function (points: Point[]) {
 
   points.forEach((point, index) => {
     path =
-      index === 0
-        ? `M ${point.time},${point.value}`
-        : `${path} L ${point.time},${point.value}`;
+      index === 0 ? `M ${point.time},${point.value}` : `${path} L ${point.time},${point.value}`;
   });
 
   return path;
@@ -140,22 +138,10 @@ export const getValueOverTime = function (slots: Slot[], time: number) {
   const p2 = interval[1];
 
   return {
-    value: scale(
-      time,
-      { min: p1.time, max: p2.time },
-      { min: p1.value, max: p2.value }
-    ),
+    value: scale(time, { min: p1.time, max: p2.time }, { min: p1.value, max: p2.value }),
     range: {
-      min: scale(
-        time,
-        { min: p1.time, max: p2.time },
-        { min: p1.range.min, max: p2.range.min }
-      ),
-      max: scale(
-        time,
-        { min: p1.time, max: p2.time },
-        { min: p1.range.max, max: p2.range.max }
-      ),
+      min: scale(time, { min: p1.time, max: p2.time }, { min: p1.range.min, max: p2.range.min }),
+      max: scale(time, { min: p1.time, max: p2.time }, { min: p1.range.max, max: p2.range.max }),
     },
   };
 };
@@ -202,12 +188,8 @@ const pointToSlot = function (point: Point) {
 
 const mergeSlots = function (first: Slot, second: Slot) {
   return {
-    time:
-      (first.time * first.hits + second.time * second.hits) /
-      (first.hits + second.hits),
-    value:
-      (first.value * first.hits + second.value * second.hits) /
-      (first.hits + second.hits),
+    time: (first.time * first.hits + second.time * second.hits) / (first.hits + second.hits),
+    value: (first.value * first.hits + second.value * second.hits) / (first.hits + second.hits),
     range: {
       min: Math.min(first.range.min, second.range.min),
       max: Math.max(first.range.max, second.range.max),

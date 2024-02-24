@@ -4,13 +4,7 @@
  * Released under the MIT license
  */
 
-import {
-  Point,
-  sortPoints,
-  getTimeRange,
-  getValueRange,
-  scalePoints,
-} from "../src/timeshift";
+import { Point, sortPoints, getTimeRange, getValueRange, scalePoints } from "../src/timeshift.js";
 
 describe("[timeshift] sortPoints", () => {
   describe("when empty list", () => {
@@ -39,9 +33,7 @@ describe("[timeshift] sortPoints", () => {
 describe("[timeshift] getTimeRange", () => {
   describe("when empty list", () => {
     it("throws an exception", () => {
-      expect(() => getTimeRange([])).toThrowError(
-        /sortedPoints must not be empty/
-      );
+      expect(() => getTimeRange([])).toThrowError(/sortedPoints must not be empty/);
     });
   });
 
@@ -80,14 +72,7 @@ describe("timeshift.getValueRange", () => {
 describe("timeshift.scalePoints", () => {
   describe("when empty list", () => {
     it("returns an empty list", () => {
-      const output = scalePoints(
-        [],
-        { min: 0, max: 10 },
-        { min: 0, max: 100 },
-        100,
-        50,
-        4
-      );
+      const output = scalePoints([], { min: 0, max: 10 }, { min: 0, max: 100 }, 100, 50, 4);
       expect(output.length).toEqual(0);
     });
   });

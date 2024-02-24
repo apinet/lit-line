@@ -17,18 +17,27 @@ why?
 
 ## Installation
 
-```bash
-$ npm install lit-line
-```
-
-or
+You can load our `lit-line` components via CDN:
 
 ```html
-<script
-  type="module"
-  src="https://unpkg.com/lit-line@{version}/dist/lit-line.js"
-></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/lit-line@latest/cdn/lit-line.js"></script>
 ```
+
+or by installing it locally using package manager such as NPM:
+
+```sh
+npm i lit-line@latest
+```
+
+Once installed, you only have to import the desired component and you are good to go.
+
+```js
+import "lit-line";
+```
+
+:::tip[About version management]
+It is not recommended to use the `@latest` suffix, as a major release could break your application. Instead, use a fixed version such as `0.3.0`.
+:::
 
 ## quick start
 
@@ -36,7 +45,6 @@ or
 <lit-line id="chart"></lit-line>
 
 <script>
-  await customElements.whenDefined('lit-line');
   const chart = document.getElementById('chart');
 
   chart.data = [

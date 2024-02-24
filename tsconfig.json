@@ -1,28 +1,24 @@
 {
+  "include": ["src"],
+  "exclude": ["test"],
   "compilerOptions": {
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noFallthroughCasesInSwitch": true,
-    "strictNullChecks": true,
+    "target": "ES6",
+    "outDir": "dist",
+    "lib": ["dom", "esnext"],
+    "declaration": true,
+    "module": "ES6",
+    "moduleResolution": "Node",
     "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
-
-    "target": "es2019",
-    "lib": [
-      "DOM",
-      "es2020"
-    ],
-
-    "module": "es2020",
-    "moduleResolution": "node",
-    
-    "pretty": true,
-    "newLine": "lf",
-    "stripInternal": false,
-    "sourceMap": true
+    "useDefineForClassFields": false,
+    "plugins": [
+      {
+        "name": "ts-lit-plugin",
+        "strict": true,
+      }
+    ]
   }
 }

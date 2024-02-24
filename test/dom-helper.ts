@@ -1,12 +1,13 @@
 /**
  * @license
- * Copyright (c) 2022, Adrien Pinet
+ * Copyright (c) 2024, Adrien Pinet
  * Released under the MIT license
  */
 
-import "../src/lit-line";
 import { render, html } from "lit-html";
-import { LitLine, SelectionEventDetail, Serie } from "../src/element";
+
+import "../src/lit-line.js";
+import { LitLine, SelectionEventDetail, Serie } from "../src/lit-line.js";
 
 export const CHART_MARGIN = 4;
 export const CHART_WIDTH = 500;
@@ -42,10 +43,7 @@ export interface MouseEvent {
   y: number;
 }
 
-export const fireMouseEvent = function (
-  litLine: LitLine,
-  mouseEvent: MouseEvent
-) {
+export const fireMouseEvent = function (litLine: LitLine, mouseEvent: MouseEvent) {
   const event = new MouseEvent("mousemove", {
     bubbles: true,
     clientX: mouseEvent.x,
@@ -107,11 +105,7 @@ export const getSerieBars = function (litLine: LitLine, serieId: number) {
   return getSerie(litLine, serieId)?.querySelectorAll(".serie__point__bar");
 };
 
-export const getSerieBar = function (
-  litLine: LitLine,
-  serieId: number,
-  barId: number
-) {
+export const getSerieBar = function (litLine: LitLine, serieId: number, barId: number) {
   const bars = getSerieBars(litLine, serieId);
   return !bars || barId >= bars.length ? undefined : bars[barId];
 };
@@ -120,11 +114,7 @@ export const getSeriePoints = function (litLine: LitLine, serieId: number) {
   return getSerie(litLine, serieId)?.querySelectorAll(".serie__point__value");
 };
 
-export const getSeriePoint = function (
-  litLine: LitLine,
-  serieId: number,
-  pointId: number
-) {
+export const getSeriePoint = function (litLine: LitLine, serieId: number, pointId: number) {
   const points = getSeriePoints(litLine, serieId);
   return !points || pointId >= points.length ? undefined : points[pointId];
 };
@@ -133,11 +123,7 @@ export const getSerieRanges = function (litLine: LitLine, serieId: number) {
   return getSerie(litLine, serieId)?.querySelectorAll(".serie__point__range");
 };
 
-export const getSerieRange = function (
-  litLine: LitLine,
-  serieId: number,
-  rangeId: number
-) {
+export const getSerieRange = function (litLine: LitLine, serieId: number, rangeId: number) {
   const ranges = getSerieRanges(litLine, serieId);
   return !ranges || rangeId >= ranges.length ? undefined : ranges[rangeId];
 };
