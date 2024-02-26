@@ -258,7 +258,7 @@ export class LitLine extends HTMLElement {
   }
 
   private dispatch(name: string, detail: any) {
-    const event = new CustomEvent(`ll:${name}`, {
+    const event = new CustomEvent(`lit-line:${name}`, {
       composed: true,
       detail,
     });
@@ -273,16 +273,14 @@ export class LitLine extends HTMLElement {
             ${this.scaledSeries.map((serie) => {
               return svg`
                 <g class="serie">
-                  <path class="serie__path" stroke=${serie.color} d="${pointsToSvgPath(
-                serie.slots
-              )}"/>
+                  <path class="path" stroke=${serie.color} d="${pointsToSvgPath(serie.slots)}"/>
                   ${serie.slots.map(
                     (slot) => svg`
-                      <g class="serie__point">
-                      <line class="serie__point__bar" stroke=${serie.color} x1="${slot.time}" y1="${
+                      <g class="point">
+                      <line class="bar" stroke=${serie.color} x1="${slot.time}" y1="${
                       slot.value
                     }" x2="${slot.time}" y2="${this.clientHeight - MARGIN}"/>
-                      <rect class="serie__point__range"
+                      <rect class="range"
                         ?highlight=${
                           this.selectedTime && Math.abs(this.selectedTime - slot.time) <= 2
                         }
@@ -290,7 +288,7 @@ export class LitLine extends HTMLElement {
                         width="4" height="${Math.abs(slot.range.max - slot.range.min)}"
                         fill=${serie.color} stroke=${serie.color}
                         rx="3" ry="3"/>
-                      <circle class="serie__point__value"
+                      <circle class="value"
                         stroke=${serie.color} fill=${serie.color} cx="${slot.time}" cy="${
                       slot.value
                     }" r="2"/>
@@ -303,26 +301,22 @@ export class LitLine extends HTMLElement {
             ${this.selectedTime &&
             svg`
               <g class="selection">
-                <line class="selection__time" x1="${this.selectedTime}" y1="${MARGIN}" x2="${
+                <line class="time" x1="${this.selectedTime}" y1="${MARGIN}" x2="${
               this.selectedTime
             }" y2="${this.clientHeight - MARGIN}"/>
                 ${this.selectedValues.map((selectedValue, i) => {
                   return selectedValue !== null
                     ? svg`
-                      <g class="selection__point">
-                        <g class="selection__point__range">
-                          <line class="selection__point__range__min" stroke="${
-                            this.series[i].color
-                          }" x1="${0}" y1="${selectedValue.range.min}" x2="${
-                        this.clientWidth
-                      }" y2="${selectedValue.range.min}"/>
-                          <line class="selection__point__range__max" stroke="${
-                            this.series[i].color
-                          }" x1="${0}" y1="${selectedValue.range.max}" x2="${
-                        this.clientWidth
-                      }" y2="${selectedValue.range.max}"/>
+                      <g class="point">
+                        <g class="range">
+                          <line class="min" stroke="${this.series[i].color}" x1="${0}" y1="${
+                        selectedValue.range.min
+                      }" x2="${this.clientWidth}" y2="${selectedValue.range.min}"/>
+                          <line class="max" stroke="${this.series[i].color}" x1="${0}" y1="${
+                        selectedValue.range.max
+                      }" x2="${this.clientWidth}" y2="${selectedValue.range.max}"/>
                         </g>
-                        <circle class="selection__point__value" stroke-width="2" stroke=${
+                        <circle class="value" stroke-width="2" stroke=${
                           this.series[i].color
                         } fill="transparent" cx="${this.selectedTime}" cy="${
                         selectedValue.value
@@ -339,45 +333,45 @@ export class LitLine extends HTMLElement {
               display: block;
             }
 
-            .serie__path {
+            .serie .path {
               fill: transparent;
               stroke-width: 2;
               transition: 200ms all ease-in;
             }
 
-            .serie__point__range {
+            .serie .point .range {
               stroke-opacity: 0.6;
               fill-opacity: 0.4;
               transition: 200ms height ease-in;
             }
 
-            .serie__point__range[highlight] {
+            .serie .point .range[highlight] {
               fill-opacity: 1;
             }
 
-            .serie__point__bar {
+            .serie .point .bar {
               stroke-opacity: 0.4;
               stroke-width: 1;
               transition: 200ms height ease-in;
             }
 
-            .selection__time {
+            .selection .time {
               stroke-opacity: var(--lit-line-selected-time--opacity, 0.8);
               stroke-width: var(--lit-line-selected-time--width, 2);
               stroke: var(--lit-line-selected-time--color, black);
             }
 
-            .selection__point__range__min {
+            .selection .range .min {
               stroke-opacity: var(--lit-line-selected-value-min--opacity, 0.3);
               stroke-width: var(--lit-line-selected-value-min--width, 1);
             }
 
-            .selection__point__range__max {
+            .selection .range .max {
               stroke-opacity: var(--lit-line-selected-value-max--opacity, 0.3);
               stroke-width: var(--lit-line-selected-value-max--width, 1);
             }
 
-            .selection__point__range__value {
+            .selection .range .value {
               stroke-opacity: var(--lit-line-selected-value--opacity, 0.8);
               stroke-width: var(--lit-line-selected-value--width, 1);
             }

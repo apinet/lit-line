@@ -98,11 +98,11 @@ export const getSerie = function (litLine: LitLine, serieId: number) {
 
 export const getSeriePath = function (litLine: LitLine, serieId: number) {
   const serie = getSerie(litLine, serieId);
-  return serie?.querySelector(".serie__path") || undefined;
+  return serie?.querySelector(".serie .path") || undefined;
 };
 
 export const getSerieBars = function (litLine: LitLine, serieId: number) {
-  return getSerie(litLine, serieId)?.querySelectorAll(".serie__point__bar");
+  return getSerie(litLine, serieId)?.querySelectorAll(".serie .point .bar");
 };
 
 export const getSerieBar = function (litLine: LitLine, serieId: number, barId: number) {
@@ -111,7 +111,7 @@ export const getSerieBar = function (litLine: LitLine, serieId: number, barId: n
 };
 
 export const getSeriePoints = function (litLine: LitLine, serieId: number) {
-  return getSerie(litLine, serieId)?.querySelectorAll(".serie__point__value");
+  return getSerie(litLine, serieId)?.querySelectorAll(".serie .point .value");
 };
 
 export const getSeriePoint = function (litLine: LitLine, serieId: number, pointId: number) {
@@ -120,7 +120,7 @@ export const getSeriePoint = function (litLine: LitLine, serieId: number, pointI
 };
 
 export const getSerieRanges = function (litLine: LitLine, serieId: number) {
-  return getSerie(litLine, serieId)?.querySelectorAll(".serie__point__range");
+  return getSerie(litLine, serieId)?.querySelectorAll(".serie .point .range");
 };
 
 export const getSerieRange = function (litLine: LitLine, serieId: number, rangeId: number) {

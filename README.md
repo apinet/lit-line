@@ -29,14 +29,14 @@ or by installing it locally using package manager such as NPM:
 npm i lit-line@latest
 ```
 
-Once installed, you only have to import the desired component and you are good to go.
+Once installed, you only have to import the component and you are good to go.
 
 ```js
 import "lit-line";
 ```
 
 :::tip[About version management]
-It is not recommended to use the `@latest` suffix, as a major release could break your application. Instead, use a fixed version such as `0.3.0`.
+It is not recommended to use the `@latest` suffix, as a major release could break your application. Instead, use a fixed version such as `0.3.1`.
 :::
 
 ## quick start
