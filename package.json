@@ -32,6 +32,7 @@
   "scripts": {
     "clean": "rm -fr dist cdn",
     "test": "npm run clean && esbuild test/*.spec.ts --outdir=dist --bundle && karma start karma.conf.cjs",
+    "demo": "npm run clean && mkdir dist && cp ./demo/index.html dist && esbuild ./demo/demo-app.ts --bundle --outdir=dist  --servedir=dist",
     "build:cdn": "node ./build.cdn.js",
     "build:dist": "tsc",
     "build": "npm run clean && npm run build:cdn && npm run build:dist"
