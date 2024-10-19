@@ -1,5 +1,4 @@
 import  esbuild from  "esbuild";
-import { minifyHTMLLiterals } from 'minify-html-literals';
 import { readFile } from 'node:fs/promises';
 
 //import info from "./package.json" assert { type: "json" };
@@ -15,7 +14,7 @@ esbuild.build({
         "./src/lit-line.ts",
     ],
     outdir: "cdn",
-    plugins: [minifyHTMLLiteralsPlugin()],
+    plugins: [],
     external: [], // empty to ensure deps are bundled
 });
 
